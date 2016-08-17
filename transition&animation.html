@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta charset="utf-8">
+		<title>CSS3之transition和animation</title>
+		<meta http-equiv="x-ua-compatible" content="ie=edge">
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+		<link rel="stylesheet" href="css/main.css">
+	</head>
+	<body>
+		<nav>
+			<ul>
+				<li><a href="index.html">Home</a></li>
+				<li><a href="">前端作品</a></li>
+				<li><a href="">日志</a></li>
+			</ul>
+		</nav>
+		<div class="container">
+			<h1>CSS3之transition和animation</h1>
+			<p>data</p>
+			<h3>Transition</h3>
+			<p>W3C标准中对CSS3的transition这是样描述的:“CSS的transition允许CSS的属性值在一定的时间区间内平滑地过渡。这种效果可以在鼠标单击、获得焦点、被点击或对元素任何改变中触发，并圆滑地以动画效果改变CSS的属性值。</p>
+			<p>transition主要包含四个属性值：</p>
+			<p>transition-property：执行变换的属性；</p>
+			<p>transition-duration：变换延续的时间：</p>
+			<p>transition-timing-function：在延续时间段，变换的速率变化；</p>
+			<p>transition-delay：变换延迟时间</p>
+			<h4>1、transition-property</h4>
+			<p>transition-property是用来指定当元素其中一个属性改变时执行transition效果，其 主要有以下几个值：none(没有属 性改 变)；all（所有属性改变）这个也是其默认值；indent（元素属性名）；当其值为none时，transition马上停止执行，当指定为all 时，则元素产生任何属性值变化时都将执行transition效果，ident是可以指定元素的某一个属性值。</p>
+			<p>支持执行transition效果的属性：</p>
+			<p>background-color、background-position、border-bottom-color、border-bottom-width、border-left-color、border-left-width、border-right-color、border-right-width、border-spacing 、border-top-color、border-top-width、bottom、clip、color、font-size、font-weight、height、left、letter-spacing、line-height、margin-bottom、margin-left、margin-right、margin-top、max-height、max-width、min-height、min-width、opacity、outline-color、outline-width、padding-bottom、padding-left、padding-right、padding-top、right、text-indent、text-shadow、top、vertical-align、visibility、width、word-spacing、z-index。</p>
+			<h4>2、transition-duration</h4>
+			<p>transition-duration是用来指定元素 转换过程的持续时间，取值：<time>为数值，单位为s（秒）,可以作用于所有元素，包括:before和:after伪元素。其默认值是0，也就是变换时是即时的。</p>
+			<h4>3、transition-timing-function</h4>
+			<p>取值：transition-timing-function的值允许你根据时间的推进去改变属性值的变换速率，transition-timing-function有6个可能值：</p>
+			<p>1、ease：（逐渐变慢）默认值，ease函数等同于贝塞尔曲线(0.25, 0.1, 0.25, 1.0)；</p>
+			<p>2、linear：（匀速），linear 函数等同于贝塞尔曲线(0.0, 0.0, 1.0, 1.0)；</p>
+			<p>3、ease-in：(加速)，ease-in 函数等同于贝塞尔曲线(0.42, 0, 1.0, 1.0)；</p>
+			<p>4、ease-out：（减速），ease-out 函数等同于贝塞尔曲线(0, 0, 0.58, 1.0)；</p>
+			<p>5、ease-in-out：（加速然后减速），ease-in-out 函数等同于贝塞尔曲线(0.42, 0, 0.58, 1.0)；</p>
+			<p>6、cubic-bezier：（该值允许你去自定义一个时间曲线）， 特定的cubic-bezier曲线。 (x1, y1, x2, y2)四个值特定于曲线上点P1和点P2。所有值需在[0, 1]区域内，否则无效。其是cubic-bezier为通过贝赛尔曲线来计算“转换”过程中的属性值，如下曲线所示，通过改变P1(x1, y1)和P2(x2, y2)的坐标可以改变整个过程的Output Percentage。初始默认值为default。</p>
+			<h4>4、transition-delay</h4>
+			<p>transition-delay是用来指定一个动画开始执行的时间，也就是说当改变元素属性值后多长时间开始执行transition效果，取 值：<time>为数值，单位为s（秒），它的使用和transition-duration极其相似，也可以作用于所有元素，包 括:before和:after伪元素。 默认大小是″0″，也就是变换立即执行，没有延迟。</p>
+			<p>有时我们不只改变一个CSS效果的属性,而是想改变两个或者多个CSS属性的transition效果，那么我们只要把几个transition的 声明串 在一起，用逗号（“，”）隔开，然后各自可以有各自不同的延续时间和其时间的速率变换方式。但需要值得注意的一点：transition-delay与 transition-duration的值都是时间，所以要区分它们在连写中的位置，一般浏览器会根据先后顺序决定，第一个可以解析为时间的怭值为 transition-duration第二个为transition-delay。</p>
+			<h3>animation</h3>
+			<p>顾名思义为动画的意思。Animation应用在页面DOM上 使其产生动画的效果。在开始介绍Animation之前我们有必要先来了解一个特殊的东西，那就是"Keyframes",我们把他叫做“关键帧”，玩过flash的朋友可能对这个东西并不会陌生。</p>
+			<p>一个官网的示例：</p>
+			<pre><code>@-webkit-keyframes 'wobble' {
+     0% {
+        margin-left: 100px;
+        background: green;
+     }
+     40% {
+        margin-left: 150px;
+        background: orange;
+     }
+     60% {
+        margin-left: 75px;
+        background: blue;
+     }
+     100% {
+        margin-left: 100px;
+        background: red;
+     }
+  }</code></pre>
+		  <p>这里我们定义了一个叫“wobble”的动画，名字任意取。分几个阶段0% 40% 60% 100% 来过渡。keyframes定义好了以后，就可以去调用定义好的动画“wobble”了。下面我们来看看怎么给一个元素调用animation属性</p>
+			<pre><code>.demo1 {
+     width: 50px;
+     height: 50px;
+     margin-left: 100px;
+     background: blue;
+     -webkit-animation-name:'wobble';/*动画属性名，也就是我们前面keyframes定义的动画名*/
+     -webkit-animation-duration: 10s;/*动画持续时间*/
+     -webkit-animation-timing-function: ease-in-out; /*动画频率，和transition-timing-function是一样的*/
+     -webkit-animation-delay: 2s;/*动画延迟时间*/
+     -webkit-animation-iteration-count: 10;/*定义循环资料，infinite为无限次*/
+     -webkit-animation-direction: alternate;/*定义动画方式*/
+  }</code></pre>
+  		<h4>animation-name:</h4>
+  		<p>animation-name:是用来定义一个动画的名称，为Keyframes中的名称，否则不会有动画效果。none为默认值，当值为none时，将没有任何动画效果。另外我们这个属性跟前面所讲的transition一样，我们可以同时附几个animation给一个元素，我们只需要用逗号“，”隔开。</p>
+  		<p>CSS3的animation类似于transition属性，他们都是随着时间改变元素的属性值。他们主要区别是transition需要触发一 个事件(hover事件或click事件等)才会随时间改变其css属性；而animation在不需要触发任何事件的情况下也可以显式的随着时间变化来 改变元素css的属性值，从而达到一种动画的效果。这样我们就可以直接在一个元素中调用animation的动画属性,基于这一点，css3的 animation就需要明确的动画属性值，这也就是回到我们上面所说的，我们需要keyframes来定义不同时间的css属性值,达到元素在不同时间 段变化的效果。</p>
+		</div>
+	</body>
+</html>

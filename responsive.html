@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta charset="utf-8">
+		<title>移动端自适应与响应式</title>
+		<meta http-equiv="x-ua-compatible" content="ie=edge">
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+		<link rel="stylesheet" href="css/main.css">
+	</head>
+	<body>
+		<nav>
+			<ul>
+				<li><a href="index.html">Home</a></li>
+				<li><a href="">前端作品</a></li>
+				<li><a href="">日志</a></li>
+			</ul>
+		</nav>
+		<div class="container">
+			<h1>响应式技术</h1>
+			<p>data</p>
+			<p>响应式设计Responsive design，意在实现不同屏幕分辨率的终端上浏览网页的不同展示方式。通过响应式设计能使网站在手机和平板电脑上有更好的浏览阅读体验。之前自己做了一个响应式网站的<a href="">demo</a>，在这里回顾一下响应式设计中所需要用到的技术：</p>
+			<h3>1、设置 Meta 标签</h3>
+			<p>大多数移动浏览器将html页面放大为宽的视图（viewport）以符合屏幕分辨率。你可以使用视图的meta标签来进行重置。下面的视图标签告诉浏览器，使用设备的宽度作为视图宽度并禁止初始的缩放。在<code>&lt;head&gt;</code>;标签里加入这个meta标签。</p>
+			<pre><code>&lt;meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"&gt;</code></pre>
+			<h3>2、布局尺寸设置</h3>
+			<p>整体布局时，板块的宽度应使用百分比设置，使其能够适应屏幕的宽度。</p>
+			<pre><code>.container{
+	width: 100%;	
+}
+.container-content{
+	width: 80%;
+}</code></pre>
+			<p>对于字体大小、内外边距等具体长度的设置时应使用rem为单位。使用rem可以避免用户改变浏览器字体后造成的布局混乱。</p>
+			<pre><code>.footer-content {
+	font-size: 1.4rem;
+	line-height: 2.4rem;
+	margin:0 1rem;
+}</code></pre>
+			<h3>3、断点选取</h3>
+			<p>首先根据项目需求确定断点，然后运用媒介查询@media来设置不同分辨率下的样式，如下代码所示：</p>
+			<pre><code>@media only screen and (max-width: 50em){
+	header .top ul li a{
+			padding: 0 3rem;
+	}
+}
+
+@media only screen and (min-width: 30em) and (max-width: 50em){
+	header .top ul li a{
+			padding: 0 2rem;
+	}
+}
+
+@media only screen and (max-width: 30em){
+	header .top ul li a{
+			padding: 0 1rem;
+	}
+}</code></pre>
+			<p>需要注意的是@media设置宽度等长度时所使用的单位em，此时的1em的值为浏览器默认的字体大小，一般为16px。</p>
+			<h3>4、处理图片的方法</h3>
+			<p>在不同的分辨率下所需要加载的图片也不同。在小屏幕下需要加载小图片，否则会造成流量的浪费也会增加加载的时间；在大屏幕下需要加载大图片，有利于用户的浏览体验。所以在不同的屏幕下加载合适大小的图片很重要。HTML5为我们提供了<code>&lt;picture&gt;</code>和<code>&lt;source&gt;</code>标签，可以让浏览器自己选择合适的图片加载。代码如下：</p>
+			<pre><code>&lt;picture&gt;
+	&lt;source srcset=&quot;img-l.png&quot; media=&quot;(min-width:50em)&quot;&gt;
+	&lt;source srcset=&quot;img-m.png&quot; media=&quot;(min-width:30em)&quot;&gt;
+	&lt;img srcset=&quot;img.png&quot; alt=&quot;img&quot;&gt;
+&lt;/picture&gt;</code></pre>
+			<p>同样<code>&lt;source&gt;</code>标签中的长度单位em也为浏览器默认的字体大小，一般为16px。</p>
+		</div>
+	</body>
+</html>

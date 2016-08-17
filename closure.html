@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta charset="utf-8">
+		<title>闭包</title>
+		<meta http-equiv="x-ua-compatible" content="ie=edge">
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+		<link rel="stylesheet" href="css/main.css">
+	</head>
+	<body>
+		<nav>
+			<ul>
+				<li><a href="index.html">Home</a></li>
+				<li><a href="">前端作品</a></li>
+				<li><a href="">日志</a></li>
+			</ul>
+		</nav>
+		<div class="container">
+			<h1>闭包（Closure）的理解</h1>
+			<p>data</p>
+			<p>让我们来看一个例子:</p>
+			<pre><code>var test = (function() {
+	var data = &quot;data&quot;;
+	// &quot;闭包&quot;内的函数可以访问 data 变量，而 data 变量对于外部却是隐藏的
+	    return {
+	        get_data: function () {
+	            // 通过定义的接口来访问 data
+	            return data;
+	        },
+	        new_data: function ( new_data ) {
+	            // 通过定义的接口来修改 data
+	            data = new_data;
+	        }
+	    };
+	} () );
+
+test.get_data (); // 得到 &quot;data&quot;
+test.data; // Type error，访问不能
+test.new_data (&quot;a new data&quot;); // 通过函数接口，我们访问并修改了 data 变量
+test.get_data (); // 得到 &quot;a new data&quot;</code></pre>
+				<p>这里有一个作用域的概念，上面代码中的局部变量data的作用域只在函数的内部，在函数外部无法读取。这里要注意的是：函数内部声明变量的时候，一定要使用var命令。如果不用的话，你实际上声明了一个全局变量！</p>
+				<p>闭包是指在 JavaScript 中，内部函数总是可以访问其所在的外部函数中声明的参数和变量，即使在其外部函数被返回（寿命终结）了之后。</p>
+				<p>它是 JavaScript 一个非常重要的特性，这意味着当前作用域总是能够访问外部作用域中的变量。 因为 函数 是 JavaScript 中唯一拥有自身作用域的结构，因此闭包的创建依赖于函数。</p>
+		</div>
+	</body>
+</html>
