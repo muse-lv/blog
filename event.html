@@ -5,13 +5,14 @@
 		<title>事件监听机制</title>
 		<meta http-equiv="x-ua-compatible" content="ie=edge">
 		<meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="shortcut icon" href="favicon.ico" type=”image/x-icon”>
 		<link rel="stylesheet" href="css/main.css">
 	</head>
 	<body>
 		<nav>
 			<ul>
 				<li><a href="index.html">Home</a></li>
-				<li><a href="">前端作品</a></li>
+				<li><a href="demo.html">前端作品</a></li>
 				<li><a href="">日志</a></li>
 			</ul>
 		</nav>
@@ -21,8 +22,7 @@
 			<h3>事件监听的封装:</h3>
 			<pre><code> 
 var eventUtil={
-  // 添加事件监听程序
-  addHandler:function(element,type,handler){
+  <p class="note">// 添加事件监听程序</p>addHandler:function(element,type,handler){
     if(element.addEventListener){
       element.addEventListener(type,handler,false);
     }else if(element.attachEvent){
@@ -32,8 +32,7 @@ var eventUtil={
     }          
   },
 
-  // 删除事件监听程序
-  removeHandler:function(element,type,handler){
+  <p class="note">// 删除事件监听程序</p>removeHandler:function(element,type,handler){
     if(element.removeEventListener){
       element.removeEventListener(type,handler,false);
     }else if(element.detachEvent){
@@ -43,22 +42,18 @@ var eventUtil={
     }          
   },
 
-  //获取事件
-  getEvent:function(event){
+ <p class="note"> //获取事件</p>getEvent:function(event){
     return event?event:window.event;
   },
 
-  //事件类型
-  getType:function(event){
+  <p class="note">//事件类型</p>getType:function(event){
     return event.type;
   },
 
-  //事件的目标
-  getElement:function(event){
+  <p class="note">//事件的目标</p>getElement:function(event){
     return event.target || event.srcElement;
   },
-  //阻止事件的默认行为
-  preventDefault:function(event){
+  <p class="note">//阻止事件的默认行为</p>preventDefault:function(event){
     if(event.preventDefault){
       event.preventDefault();
     }else{
@@ -66,8 +61,7 @@ var eventUtil={
     }
   },  
 
-  //阻止事件冒泡
-  stopPropagation:function(event){
+ <p class="note"> //阻止事件冒泡</p>stopPropagation:function(event){
     if (event.stopPropagation) {
       event.stopPropagation();
     }else{
