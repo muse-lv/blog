@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta charset="utf-8">
+		<title>insertAfter</title>
+		<meta http-equiv="x-ua-compatible" content="ie=edge">
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="shortcut icon" href="favicon.ico" type=”image/x-icon”>
+		<link rel="stylesheet" href="css/main.css">
+	</head>
+	<body>
+		<nav>
+			<ul>
+				<li><a href="index.html">Home</a></li>
+				<li><a href="demo.html">前端作品</a></li>
+				<li><a href="">日志</a></li>
+			</ul>
+		</nav>
+		<div class="container">
+			<h1>insertAfter</h1>
+			<p>2016/9/21</p>
+			<h3>insertAfter</h3>
+      <p>js在目标元素后面插入新元素。</p>
+			<pre><code> 
+function insertAfter(newElement,targetElement) {
+    var parent = targetElement.parentNode;
+    if(parent.lastChlid == targetElement) {
+      parent.appendChild(newElement);
+    }else{
+      parent.insertBefore(newElement,targetElement.nextSibling);
+    }
+}
+</code></pre>
+		</div>
+	</body>
+</html>
