@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta charset="utf-8">
+		<title>imgLoad</title>
+		<meta http-equiv="x-ua-compatible" content="ie=edge">
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+	    <link rel="shortcut icon" href="favicon.ico" type=”image/x-icon”>
+		<link rel="stylesheet" href="css/main.css">
+	</head>
+	<body>
+		<nav>
+			<ul>
+				<li><a href="index.html">Home</a></li>
+				<li><a href="demo.html">前端作品</a></li>
+				<li><a href="">日志</a></li>
+			</ul>
+		</nav>
+		<div class="container">
+			<h1>判断图片是否加载</h1>
+			<p>2016/12/1</p>
+			<h3>insertAfter</h3>
+      <p>判断图片是否加载，常用于获取图片的高度或宽度</p>
+			<pre><code> 
+ img.one("load",function(){
+                //获取高度
+                imgHeight = container.find("img").outerHeight();
+                container.css("height",imgHeight+'px'); 
+            }).each(function() {
+              if(this.complete){
+                //获取高度
+                imgHeight = container.find("img").outerHeight();
+                container.css("height",imgHeight+'px');
+              };
+            });  
+</code></pre>
+		</div>
+	</body>
+</html>
