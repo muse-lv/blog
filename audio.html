@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta charset="utf-8">
+		<title>h5实现音频播放器</title>
+		<meta http-equiv="x-ua-compatible" content="ie=edge">
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+	    <link rel="shortcut icon" href="favicon.ico" type=”image/x-icon”>
+		<link rel="stylesheet" href="css/main.css">
+	</head>
+	<body>
+		<nav>
+			<ul>
+				<li><a href="index.html">Home</a></li>
+				<li><a href="demo.html">前端作品</a></li>
+				<li><a href="">日志</a></li>
+			</ul>
+		</nav>
+		<div class="container">
+			<h1>h5实现音频播放器</h1>
+			<p>2017/2/28</p>
+			<h3>浏览器自带控件实例：</h3>
+      <div class="native">
+      	<audio controls="controls">
+				  <source src="images/audio.ogg" type="audio/ogg">
+				  <source src="images/audio.mp3" type="audio/mpeg">
+					您的浏览器不支持此控件
+				</audio>
+      </div>
+      <h3>自定义控件实例：</h3>
+      <div class="custom">
+      	<button id="custom_switch">播放</button>
+      	<audio id="custom_audio">
+				  <source src="images/audio.ogg" type="audio/ogg">
+				  <source src="images/audio.mp3" type="audio/mpeg">
+					您的浏览器不支持此控件
+				</audio>
+    		<span id="time">00:00:00</span>
+      </div>
+
+		</div>
+	</body>
+	<script src="js/audio.js"></script>
+</html>
