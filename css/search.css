@@ -1,0 +1,43 @@
+.search {
+	position: relative;
+}
+#search-from {
+	font-size: 0;
+}
+#search-text {
+	height: 30px;
+	width: 300px;
+	border: none;
+	font-size: 14px;
+	text-indent: 5px;
+}
+#search-btn {
+	height: 30px;
+	width: 60px;
+	border: none;
+	font-size: 14px;
+	cursor: pointer;
+}
+.suggest {
+	width: 360px;
+	background-color: #fff;
+	position: absolute;
+}
+
+.suggest ul {
+	margin: 0;
+	padding: 0;
+	list-style:none;
+}
+
+.suggest ul li {
+	font-size: 14px;
+	line-height: 30px;
+	padding: 3px;
+	cursor: pointer;
+}
+
+.suggest ul li:hover {
+	background-color: #A0A0A0;
+	text-decoration: underline;
+}
