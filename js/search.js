@@ -15,8 +15,15 @@
 					}
 					event.stopPropagation();
 			};
+	//函数节流
+	function throttle(method,context){
+		clearTimeout(method.tId);
+		method.tId = setTimeout(function(){
+			method.call(context);
+		},200);
+	}
 	//input键盘输入事件
-	input.onkeyup = function(){
+	function keyup(){
 		var html = "";
 		value = input.value;
 		length = value.length;
@@ -28,6 +35,9 @@
 		});		
 		list.innerHTML = html;
 		list.addEventListener("click",handle,false);
+	}
+	input.onkeyup = function(){
+		throttle(keyup);
 	};
 	//搜索按钮点击事件
 	btn.onclick = function(){
