@@ -230,7 +230,28 @@
 		var loverCover = $(".loverCover");
 		var realLover = $(".realLover");
 		containerCover.on("touchend",function(){
-			$(this).hide();
+			$(".msg").show();
+			$(".submit").on("touchend", function() {
+				var name = $(".name").val();
+				if(name == "王左娟") {
+					$(".msg").hide();		
+					containerCover.hide();
+					return;
+				}
+				if(name == "宋杏") {
+					$(".msg").hide();
+					$(".photo").attr("src","images/mumu.jpg");
+					containerCover.hide();
+					return;
+				}
+				if(name == "李龙") {
+					$(".msg").hide();
+					$(".photo").attr("src","images/s.jpg");
+					containerCover.hide();	
+					return;					
+				}
+				window.alert("名字不正确");
+			})
 		})
 		loverCover.on("touchend",function(){
 			var _this = $(this);
@@ -250,28 +271,7 @@
 		realLover.on("touchend",function(){
 			loverCover.each(function(index,item){
 				if($(item).data("num") == 1 && $(item).data("flag") == "show"){
-					$(".msg").show();
-					$(".submit").on("touchend", function() {
-						var name = $(".name").val();
-						if(name == "王左娟") {
-							$(".msg").hide();
-							realLover.hide();
-							return;
-						}
-						if(name == "宋杏") {
-							$(".msg").hide();
-							$(".photo").attr("src","images/mumu.jpg");
-							realLover.hide();
-							return;
-						}
-						if(name == "李龙") {
-							$(".msg").hide();
-							$(".photo").attr("src","images/s.jpg");
-							realLover.hide();	
-							return;					
-						}
-						window.alert("名字不正确");
-					})
+					realLover.hide();
 				}
 			})
 		})
